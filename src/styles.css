@@ -47,9 +47,7 @@ main {
     grid-template-columns: 50% 30%;
     justify-content: space-between;
 }
-.weather-app-info { 
-  
-}
+
 .weather-app-temperature-container {
     display: grid;
     grid-template-columns: 70px 90px 25px;
