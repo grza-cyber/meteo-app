@@ -4,26 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meteo App project from scratch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/styles.css" />
 </head>
 <body>
     <div id="wrapper">
     <header>
-        <form>
-            <input type="search" placeholder="Enter a city" />
-            <input type="submit" value="Search" />
+        <form class="search-form">
+            <input type="search" placeholder="Enter a city" class="search-form-input"/>
+            <input type="submit" value="Search" class="search-form-button"/>
         </form>
     </header>
     <main>
-    <div>
-        <h1>Paris</h1>
-        <p>Monday 23:03, cloudy
+    <div class="weather-app-info">
+        <h1 class="weather-app-city" id="city">Paris</h1>
+        <p class="weather-app-details">
+            <span id=*time">Monday 23:03</span>, <span id="description">cloudy</span>
         </br>
-        Humidity: 80%, Wind: 1.2km/h
+        Humidity: <strong id="humidity">80%</strong> , Wind: <strong id="wind-speed">1.2km/h</strong>
         </p>
     </div>
-    <div>
-        ⛅ 11°C
+    <div class="weather-app-temperature-container">
+        <div id="icon">⛅</div>
+         <div class="weather-app-temperature" id="temperature">11</div>
+         <div class="weather-app-unit">°C</div>
     </div>
 </main>
     <footer>
