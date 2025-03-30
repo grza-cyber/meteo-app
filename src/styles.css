@@ -72,6 +72,33 @@ strong {
     font-size: 25px;
     padding-top: 15px;
 }
+.forecast-wrapper {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    display:flex;
+    justify-content: space-around;
+}
+.forecast-box {
+    flex-direction: row;
+}
+
+.forecast-day { 
+    padding-bottom: 10px;
+    text-align: center;
+}
+.forecast-icon {
+   padding-bottom: 15px;
+   text-align: center;
+   font-size: 30px;
+}
+.forecast-temperatures {
+    display: flex;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.forecast-temperature {
+    color:#dd0b51;
+}
 footer {
     border-top: 1px solid #dedede;
     padding-top: 25px;
