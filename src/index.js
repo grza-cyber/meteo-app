@@ -1,5 +1,4 @@
-function formatDate() {
-let currentDay = new Date();   
+function formatDate(date) { 
 let days = [
     "Sunday",
     "Monday",
@@ -9,20 +8,20 @@ let days = [
     "Friday",
     "Saturday"
 ];
-let day = days[currentDay.getDay()];
-let currentTime = currentDay.getHours();
-let minute = currentDay.getMinutes();
-let currentDate = document.querySelector("#time");
+let day = days[date.getDay()];
+let hour = date.getHours();
+let minute = date.getMinutes();
 if (minute < 10) {
     minute = `0${minute}`;
 }
-currentDate.innerHTML = `${day}, ${currentTime}:${minute}`;
+return(`${day}, ${hour}:${minute}`);
 }
-let today = document.querySelector("#time");
-today.addEventListener("load", formatDate());
+
 
 function refreshMeteo(response) {
-
+let date = new Date(response.data.time * 1000);
+let timeElement = document.querySelector("#time");
+timeElement.innerHTML = formatDate(date);
 
 let headerContent = document.querySelector("#city");
 headerContent.innerHTML = response.data.city;
