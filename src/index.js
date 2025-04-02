@@ -14,7 +14,7 @@ let minute = date.getMinutes();
 if (minute < 10) {
     minute = `0${minute}`;
 }
-return(`${day}, ${hour}:${minute}`);
+return(`${day} ${hour}:${minute}`);
 }
 
 
@@ -64,7 +64,29 @@ function handleSearchSubmit(event) {
     searchCity(searchInputElement.value);
 }
 
+function displayForecast() {
+    let weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+    let forecastHtml = "";
+
+    weekDays.forEach(function (day) {
+        forecastHtml = forecastHtml + `<div class="forecast-box">
+        <div class="forecast-info">
+        <div class="forecast-day">${day}</div>
+        <div class="forecast-icon">🌤️</div>
+        <div class="forecast-temperatures">
+            <div class="forecast-temperature"><strong>15°</strong></div>
+            <div class="forecast-temperature">24 °C</div>
+        </div>
+        </div>
+    </div>`;
+    });
+
+    let forecastElement = document.querySelector("#forecast");
+    forecastElement.innerHTML = forecastHtml;
+}
+
 let formElement = document.querySelector("#searchForm");
 formElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Zürich");
+displayForecast();
