@@ -50,6 +50,7 @@ let icon = response.data.condition.icon_url;
 iconElement.innerHTML = `<img src="${icon}" />`;
 
 console.log(response.data);
+getForecast(response.data.city);
 }
 
 function searchCity(city) {
@@ -64,7 +65,16 @@ function handleSearchSubmit(event) {
     searchCity(searchInputElement.value);
 }
 
-function displayForecast() {
+function getForecast(city) {
+    let apiKey = "4a76f73ec0tb4cf9o9b3b1c325220356";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+    console.log(response.data);
+
+
     let weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri"];
     let forecastHtml = "";
 
@@ -85,8 +95,9 @@ function displayForecast() {
     forecastElement.innerHTML = forecastHtml;
 }
 
+
+
 let formElement = document.querySelector("#searchForm");
 formElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Zürich");
-displayForecast();
